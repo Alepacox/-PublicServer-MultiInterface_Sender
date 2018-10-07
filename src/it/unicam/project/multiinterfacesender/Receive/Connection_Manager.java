@@ -1,6 +1,5 @@
 package it.unicam.project.multiinterfacesender.Receive;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -82,7 +81,7 @@ public class Connection_Manager implements Runnable {
     }
 
 
-    private void appendLog(String msg, Color c) {
+   /* private void appendLog(String msg, Color c) {
         //Main.AppendLog(msg, c);
-    }
+    }*/
 }

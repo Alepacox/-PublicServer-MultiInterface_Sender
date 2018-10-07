@@ -1,6 +1,6 @@
 package it.unicam.project.multiinterfacesender.Receive;
 
-import java.awt.*;
+//import java.awt.*;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Date;
@@ -150,9 +150,9 @@ public class Connection implements Runnable {
         }
     }
 
-    private void appendLog(String msg, Color c) {
+  /*  private void appendLog(String msg, Color c) {
       //  Main.AppendLog(msg, c);
-    }
+    }*/
 
     void SendMesage(Message d) {
         try {
