@@ -31,7 +31,7 @@ public class Main {
     private static Connection_Manager managerSRV;
 
     public static void main(String[] args) {
-        initGUI();
+        //initGUI();
         new Thread(managerSRV = new Connection_Manager()).start();
 
         HttpClient client = HttpClient.newHttpClient();
@@ -73,7 +73,7 @@ public class Main {
     }
     private static void initGUI() {
 
-        chatText = new JTextPane();
+       /* chatText = new JTextPane();
         chatText.setMargin(new Insets(5, 5, 5, 5));
         chatText.setBorder(new EmptyBorder(new Insets(10, 10, 10, 10)));
 
@@ -112,11 +112,11 @@ public class Main {
 
         mainFrame.setSize(mainFrame.getPreferredSize());
         mainFrame.pack();
-        mainFrame.setVisible(true);
+        mainFrame.setVisible(true);*/
     }
 
     static void AppendLog(String message, Color color) {
-        StyledDocument doc = chatText.getStyledDocument();
+      /*  StyledDocument doc = chatText.getStyledDocument();
 
         Style style = chatText.addStyle("I'm a Style", null);
         StyleConstants.setForeground(style, color);
@@ -132,7 +132,7 @@ public class Main {
             vertical.setValue(vertical.getMaximum());
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     static void sendMessageToClients(Message d, String dtoken) {

@@ -59,7 +59,7 @@ public class Connection implements Runnable {
         IO_Sock = new TCP_IO(socket);
         new Thread(IO_Sock).start();
         changeStatus(CONNECTED, true);
-        appendLog("(" + connID + ") " + statusMessages[connectionStatus], Color.orange);
+        System.out.println("(" + connID + ") " + statusMessages[connectionStatus]);
     }
 
     private void onStatus_CONNECTED() {
@@ -89,7 +89,7 @@ public class Connection implements Runnable {
                else
                {
 
-                   appendLog("WAN message received:\n\t redirecting [" + o.fileChunk.length + "] bytes TO controparte:"+dtoken_controparte, Color.cyan);
+                   System.out.println("WAN message received:\n\t redirecting [" + o.fileChunk.length + "] bytes TO controparte:"+dtoken_controparte);
                    Main.sendMessageToClients(o, dtoken_controparte);
                    IO_Sock.out.reset();
                }
@@ -123,7 +123,7 @@ public class Connection implements Runnable {
         int statusPrePre = statusPre;
         statusPre = connectionStatus;
         if (statusPrePre != connectionStatus)
-            appendLog("(" + connID + ") " + statusString, Color.orange);
+           System.out.println("(" + connID + ") " + statusString);
     }
 
     private void cleanUp() {
@@ -151,24 +151,24 @@ public class Connection implements Runnable {
     }
 
     private void appendLog(String msg, Color c) {
-        Main.AppendLog(msg, c);
+      //  Main.AppendLog(msg, c);
     }
 
     void SendMesage(Message d) {
         try {
             IO_Sock.out.writeUnshared(d);
         } catch (IOException e) {
-            appendLog(e.getMessage(), Color.red);
+           System.out.println(e.getMessage());
         }
         try {
             IO_Sock.out.flush();
         } catch (IOException e) {
-            appendLog(e.getMessage(), Color.red);
+           System.out.println(e.getMessage());
         }
         try {
             IO_Sock.out.reset();
         } catch (IOException e) {
-            appendLog(e.getMessage(), Color.red);
+            System.out.println(e.getMessage());
         }
     }
 

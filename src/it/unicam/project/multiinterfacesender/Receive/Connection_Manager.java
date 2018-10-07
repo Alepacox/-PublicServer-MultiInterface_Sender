@@ -16,7 +16,7 @@ public class Connection_Manager implements Runnable {
     Connection_Manager() {
         try {
             serverSocket = new ServerSocket(PORT);
-            appendLog("35.180.118.235:" + PORT + "\n\tWaiting for connections...", Color.orange);
+            System.out.println("35.180.118.235:" + PORT + "\n\tWaiting for connections...");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,14 +31,14 @@ public class Connection_Manager implements Runnable {
                 clients.add(c);
                 new Thread(c).start();
             } catch (IOException e) {
-                appendLog("I/O error: " + e, Color.red);
+                System.out.println("I/O error: " + e);
             }
         }
     }
 
     void removeClient(Connection client) {
         int toRemove = clients.indexOf(client);
-        appendLog("client [" + client.connID + "] Disconnected", Color.blue);
+        System.out.println("client [" + client.connID + "] Disconnected");
         clients.remove(toRemove);
     }
 
@@ -83,6 +83,6 @@ public class Connection_Manager implements Runnable {
 
 
     private void appendLog(String msg, Color c) {
-        Main.AppendLog(msg, c);
+        //Main.AppendLog(msg, c);
     }
 }
