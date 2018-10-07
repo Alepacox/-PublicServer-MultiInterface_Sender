@@ -1,17 +1,10 @@
 
 package it.unicam.project.multiinterfacesender.Receive;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Style;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
-import java.awt.*;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
+
+
 import java.net.URI;
-import java.util.Date;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -24,9 +17,9 @@ import jdk.incubator.http.WebSocket;
 import org.json.simple.JSONValue;
 
 public class Main {
-    private static JTextPane chatText;
+   /* private static JTextPane chatText;
     private static JScrollPane chatTextPane;
-    private static JFrame mainFrame;
+    private static JFrame mainFrame;*/
 
     private static Connection_Manager managerSRV;
 
@@ -115,7 +108,7 @@ public class Main {
         mainFrame.setVisible(true);*/
     }
 
-    static void AppendLog(String message, Color color) {
+   // static void AppendLog(String message, Color color) {
       /*  StyledDocument doc = chatText.getStyledDocument();
 
         Style style = chatText.addStyle("I'm a Style", null);
@@ -133,7 +126,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }*/
-    }
+   // }
 
     static void sendMessageToClients(Message d, String dtoken) {
         managerSRV.sendMessageToClients(d, dtoken);
