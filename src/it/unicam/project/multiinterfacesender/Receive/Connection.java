@@ -105,8 +105,11 @@ public class Connection implements Runnable {
         if (IO_Sock != null) {
             IO_Sock = null;
         }
+        Connection c = this.connection_manager.getConnectionByDToken(dtoken_controparte);
+        c.disconnect();
         alive = false;
         Main.removeClient(this);
+
     }
 
     private static int statusPre = 0;
