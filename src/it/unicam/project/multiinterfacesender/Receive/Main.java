@@ -47,14 +47,26 @@ public class Main {
 
             Object obj= JSONValue.parse(message.toString());
             JSONObject a=(JSONObject)obj;
-            String ricevente = (String)a.get("ricevente");
-            System.out.println("ricevente="+ricevente);
+            if(a.get("disattiva")!=null)
+            {
+                String dtoken = (String)a.get("disattiva");
+                Connection r= managerSRV.getConnectionByDToken(dtoken);
+                r.dtoken_controparte = null;
+                r = managerSRV.getControparteConnectionByDToken(dtoken);
+                r.dtoken_controparte = null;
+            }
+            else
+            {
+                String ricevente = (String)a.get("ricevente");
+                System.out.println("ricevente="+ricevente);
 
-            String mittente = (String)a.get("mittente");
-            System.out.println("mittente="+mittente);
-            Connection r= managerSRV.getConnectionByDToken(ricevente);
-            System.out.println("controparte="+r.dtoken);
-            r.dtoken_controparte = mittente;
+                String mittente = (String)a.get("mittente");
+                System.out.println("mittente="+mittente);
+                Connection r= managerSRV.getConnectionByDToken(ricevente);
+                System.out.println("controparte="+r.dtoken);
+                r.dtoken_controparte = mittente;
+            }
+
             // Reuqesting next message
             webSocket.request(1);
 
